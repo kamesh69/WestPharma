@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Mobile Automation Suite" verbose="1">
+    <parameter name="moduleName" value="mobile"/>
+    <test name="Android Calculator">
+        <classes>
+            <class name="com.westpharma.aisdet.mobile.tests.AndroidCalculatorTest"/>
+        </classes>
+    </test>
+</suite>

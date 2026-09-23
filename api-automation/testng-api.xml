@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="API Automation Suite" verbose="1">
+    <parameter name="moduleName" value="api"/>
+    <test name="Restful Booker Tests">
+        <classes>
+            <class name="com.westpharma.aisdet.api.tests.BookingCrudTest"/>
+            <class name="com.westpharma.aisdet.api.tests.BookingNegativeTest"/>
+        </classes>
+    </test>
+</suite>

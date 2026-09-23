@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Desktop Automation Suite" verbose="1">
+    <parameter name="moduleName" value="desktop"/>
+    <test name="Windows Calculator and Notepad">
+        <classes>
+            <class name="com.westpharma.aisdet.desktop.tests.CalculatorNotepadTest"/>
+        </classes>
+    </test>
+</suite>
