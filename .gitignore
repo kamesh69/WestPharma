@@ -22,3 +22,9 @@ desktop-automation/output/*
 __pycache__/
 *.pyc
 .venv/
+demo-console/backend/.venv/
+demo-console/frontend/node_modules/
+demo-console/frontend/dist/
+**/__pycache__/
+
+.github/

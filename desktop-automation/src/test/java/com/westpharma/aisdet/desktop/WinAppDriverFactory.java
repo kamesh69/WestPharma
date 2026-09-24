@@ -9,7 +9,8 @@ import java.net.URL;
 import java.time.Duration;
 
 /**
- * WinAppDriver session factory. Must run on Windows with WinAppDriver listening on 4723.
+ * WinAppDriver session factory for Windows Calculator / Notepad.
+ * Requires Windows + WinAppDriver listening on desktop.winAppDriverUrl.
  */
 public final class WinAppDriverFactory {
 
@@ -24,6 +25,11 @@ public final class WinAppDriverFactory {
 
     @SuppressWarnings("deprecation")
     public static WebDriver launch(String appIdOrPath) throws Exception {
+        if (DesktopOsSupport.resolve() != DesktopOsSupport.Platform.WINDOWS) {
+            throw new IllegalStateException(
+                    "WinAppDriver is Windows-only. On macOS use Appium Mac2 (desktop.platform=mac). "
+                            + DesktopOsSupport.framingNote());
+        }
         DesiredCapabilities caps = new DesiredCapabilities();
         caps.setCapability("platformName", "Windows");
         caps.setCapability("deviceName", "WindowsPC");

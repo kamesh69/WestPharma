@@ -1,0 +1,22 @@
+# Desktop Q3 — dual platform
+#
+# Same use case on both OSes:
+#   Calculator (3 ops) → Calc_Summary_*.txt → Text editor (Notepad / TextEdit)
+#
+# Windows: WinAppDriver 1.2.1 on desktop.winAppDriverUrl (default http://127.0.0.1:4723)
+#   - Enable Developer Mode
+#   - Run WinAppDriver as Administrator
+#   - mvn -pl desktop-automation -am test
+#
+# macOS engine chain (desktop.mac.engine=auto):
+#   1) Appium Mac2 on :4724  → needs full Xcode.app (not only CLT) + Accessibility
+#        appium driver install mac2
+#        appium --port 4724 --base-path /
+#   2) System Events / osascript → needs Automation + Accessibility for Terminal/Cursor/Java
+#   3) visible-fallback → opens Calculator + TextEdit without System Events;
+#        computes 12+8 / 9×7 / 100÷4 in-process so the suite stays demoable
+#
+# Force: -Ddesktop.platform=mac|windows|auto
+# Force: -Ddesktop.mac.engine=auto|mac2|osascript|visible
+#
+# Keep Android Appium on :4723; Mac2 on :4724 (do not share one server for both).
